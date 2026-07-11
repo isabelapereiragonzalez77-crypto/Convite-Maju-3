@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maju faz 15</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400&display=swap');
+
+        /* Efeito de revelação */
+        @keyframes reveal {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #fffdfa 0%, #fdfbf7 100%);
+            font-family: 'Montserrat', sans-serif;
+            color: #4a4a4a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            animation: reveal 2s ease-out;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: #ffffff;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #b8860b;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .frase {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        #countdown {
+            font-size: 1.2rem;
+            color: #b8860b;
+            margin: 20px 0;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .info {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .obs {
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            color: #777;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: block;
+            padding: 14px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #b8860b;
+            border-radius: 5px;
+            font-weight: 400;
+            transition: all 0.3s;
+            border: 1px solid #b8860b;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            color: #b8860b;
+            box-shadow: 0 0 15px rgba(184, 134, 11, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Maju faz 15</h1>
+        <p class="frase">"Há momentos que merecem ser celebrados com quem faz parte da nossa história. Será uma alegria ter você conosco neste dia tão especial."</p>
+        
+        <div id="countdown"></div>
+
+        <div class="info">
+            <p>Data: <span class="highlight">04/10</span></p>
+            <p>Horário: <span class="highlight">12:00</span></p>
+            <p>Local: Estrada do Rio Grande, 2813 – Taquara, Rio de Janeiro</p>
+            <p class="obs">Obs: Favor levar traje de banho com short.</p>
+        </div>
+
+        <div class="button-group">
+            <a href="https://www.google.com/maps/search/?api=1&query=Estrada+do+Rio+Grande,+2813+Taquara+Rio+de+Janeiro" class="btn">Como Chegar</a>
+            <a href="https://wa.me/5521968910172" class="btn">Confirmar Presença</a>
+            <a href="lista1.png" class="btn">Sugestão de Presentes</a>
+        </div>
+    </div>
+
+    <script>
+        // Data do evento: 4 de outubro de 2026, às 12:00
+        const eventDate = new Date("October 4, 2026 12:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const diff = eventDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("countdown").innerHTML = 
+                days + "d " + hours + "h " + minutes + "m até o grande dia!";
+
+            if (diff < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "O grande dia chegou!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+
